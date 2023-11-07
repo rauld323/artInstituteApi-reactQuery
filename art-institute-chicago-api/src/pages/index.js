@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Head from 'next/head';
 import ImageCall from '@/components/artPiece';
 import { useQuery } from "react-query";
@@ -7,7 +7,7 @@ export default function Home() {
   const { data, isLoading } = useQuery('artworks', async () => {
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    const response = await fetch('https://api.artic.edu/api/v1/artworks?page=1&limit=50');
+    const response = await fetch('https://api.artic.edu/api/v1/artworks?page=1&limit=12');
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
